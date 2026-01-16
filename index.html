@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단체선물 주문 현황</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎁 단체선물 주문 현황</h1>
+            <div class="header-info">
+                <span id="templateInfo">템플릿 번호: <strong id="templateNumber">-</strong></span>
+                <span id="updateTime">마지막 업데이트: <strong id="lastUpdate">-</strong></span>
+            </div>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-title">전체 주문</div>
+                <div class="card-value" id="totalCount">0</div>
+            </div>
+            <div class="card">
+                <div class="card-title">미선택</div>
+                <div class="card-value status-none" id="noneCount">0</div>
+            </div>
+            <div class="card">
+                <div class="card-title">선택완료</div>
+                <div class="card-value status-selected" id="selectedCount">0</div>
+            </div>
+            <div class="card">
+                <div class="card-title">주문확정</div>
+                <div class="card-value status-confirmed" id="confirmedCount">0</div>
+            </div>
+            <div class="card">
+                <div class="card-title">배송완료</div>
+                <div class="card-value status-delivered" id="deliveredCount">0</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="이름, 전화번호, 상품명으로 검색...">
+            <select id="statusFilter">
+                <option value="">전체 상태</option>
+                <option value="미선택">미선택</option>
+                <option value="선택완료">선택완료</option>
+                <option value="주문확정">주문확정</option>
+                <option value="배송완료">배송완료</option>
+            </select>
+            <button id="refreshBtn">🔄 새로고침</button>
+        </div>
+
+        <div id="loading" class="loading">데이터를 불러오는 중...</div>
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div class="table-container">
+            <table id="ordersTable">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>상품코드</th>
+                        <th>상품명</th>
+                        <th>상품이미지</th>
+                        <th>수령인</th>
+                        <th>연락처</th>
+                        <th>상태</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- 데이터가 여기에 표시됩니다 -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination" id="pagination">
+            <!-- 페이지네이션 버튼이 여기에 표시됩니다 -->
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
